@@ -1,0 +1,23 @@
+# Core Web Framework
+Flask==3.0.3
+
+# Machine Learning / Deep Learning
+torch==2.3.1
+torchvision==0.18.1
+numpy==1.26.4
+
+# Image Processing
+opencv-python==4.10.0.84
+Pillow==10.3.0
+
+# Data Handling
+requests==2.32.3
+
+# Visualization & Utilities
+matplotlib==3.9.2
+
+# Optional (if using GradCAM custom class)
+scikit-image==0.24.0
+
+# Environment (for deployment/debugging)
+python-dotenv==1.0.1

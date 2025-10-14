@@ -1,0 +1,284 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ 
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width,initial-scale=1"> 
+<title>Create an account — REALM</title> 
+<link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&
+ amp;display=swap" rel="stylesheet"> 
+<style> 
+  :root{ 
+    --bg:#111019; 
+    --card:#1f1630; 
+    --muted:rgba(230,238,248,0.75); 
+    --glass: rgba(255,255,255,0.03); 
+    --accent:#7b5cff; 
+    --accent-2:#9b7bff; 
+    --panel-image: url('left-panel.jpg'); /* <-- REPLACE with your image 
+path */ 
+  } 
+  *{box-sizing:border-box} 
+  html,body{height:100%; margin:0; 
+font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial; 
+background:linear-gradient(180deg,#0c0710,#0b0b14); color:#fff} 
+  .wrap{ 
+    min-height:100vh; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+  }.brand { 
+    font-size: 400px; 
+  } 
+ 
+  .card{ 
+    width:1100px; 
+    max-width:96%; 
+    border-radius:18px; 
+    overflow:hidden; 
+    display:flex; 
+    box-shadow: 0 20px 60px rgba(2,6,20,0.7); 
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), 
+rgba(255,255,255,0.01)); 
+  } 
+ 
+  .panel { 
+    width:52%; 
+    min-height:560px; 
+    background-image: 
+      linear-gradient(180deg, rgba(103, 67, 202, 0.18), rgba(0, 0, 0, 
+0.32)), 
+      var(--panel-image); 
+    background-size:cover; 
+    background-position:center; 
+    position:relative; 
+    padding:28px; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:space-between; 
+  } 
+  .panel .top{ 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+  } 
+  .brand{ 
+    font-weight:800; 
+    letter-spacing:0.6px; 
+    font-size:150px; 
+    color:rgba(211, 209, 209, 0.95); 
+  } 
+  .back-btn{ 
+    background: rgba(255,255,255,0.06); 
+    border:1px solid rgba(255,255,255,0.05); 
+    padding:8px 12px; 
+    border-radius:999px; 
+    color:#fff; 
+    text-decoration:none; 
+    font-size:13px; 
+  } 
+  .panel .hero{ 
+    margin-top:auto; 
+    margin-bottom:24px; 
+    padding:18px; 
+    border-radius:12px; 
+    background: linear-gradient(90deg, rgba(0,0,0,0.18), 
+rgba(0,0,0,0.28)); 
+  } 
+  .panel h3{ 
+    margin:0 0 8px 0; 
+    font-size:20px; 
+  } 
+  .panel p{margin:0; opacity:0.95; color:var(--muted)} 
+ 
+  /* right form side */ 
+  .form-side{ 
+    width:48%; 
+    padding:44px 48px; 
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), 
+rgba(255,255,255,0.015)); 
+  } 
+  .form-side h1{ 
+    margin:0 0 8px 0; 
+    font-size:28px; 
+    font-weight:700; 
+  } 
+  .form-side .hint{ 
+    margin-bottom:22px; 
+    color:var(--muted); 
+    font-size:14px; 
+  } 
+ 
+  form .row{ 
+    display:flex; 
+    gap:12px; 
+  } 
+  label{display:block; font-size:13px; margin-bottom:8px; opacity:0.9} 
+  input[type="text"], input[type="email"], input[type="password"]{ 
+    width:100%; 
+    padding:12px 14px; 
+    border-radius:10px; 
+    border:none; 
+    background: rgba(255,255,255,0.03); 
+    color:#fff; 
+    font-size:14px; 
+  } 
+  .input-wrap{margin-bottom:14px} 
+ 
+  .checkbox{ 
+    display:flex; 
+    align-items:center; 
+    gap:10px; 
+    margin:12px 0 18px 0; 
+    font-size:14px; 
+    color:var(--muted); 
+  } 
+  .btn-primary{ 
+    display:inline-block; 
+    width:100%; 
+    padding:12px 14px; 
+    border-radius:9px; 
+    border:none; 
+    background: linear-gradient(90deg,var(--accent),var(--accent-2)); 
+    font-weight:700; 
+    cursor:pointer; 
+    color:white; 
+    font-size:15px; 
+    box-shadow: 0 6px 18px rgba(123,91,255,0.18); 
+  } 
+  .or-row{ 
+    text-align:center; 
+    margin:18px 0; 
+    color:var(--muted); 
+    font-size:13px; 
+  } 
+  .socials{ 
+    display:flex; 
+    gap:12px; 
+  } 
+  .social-btn{ 
+    flex:1; 
+    padding:10px 12px; 
+    border-radius:10px; 
+    border:1px solid rgba(255,255,255,0.04); 
+    background: rgba(255,255,255,0.02); 
+    cursor:pointer; 
+    display:inline-flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:10px; 
+    font-weight:600; 
+    color:var(--muted); 
+  } 
+  .small{ 
+    font-size:13px; 
+    opacity:0.85; 
+  } 
+ 
+  .form-footer{ 
+    margin-top:1px; 
+    font-size:13px; 
+    color:var(--muted); 
+  } 
+ 
+</style> 
+</head> 
+<body> 
+    <body> 
+  <div class="wrap"> 
+    <div class="card" role="region" aria-label="Create account card"> 
+      <aside class="panel" aria-hidden="false"> 
+        <div class="top"> 
+          <div class="brand">REALM</div> 
+        </div> 
+ 
+        <div class="hero" aria-hidden="true"> 
+          <h3>Access the power of AI-driven land intelligence.</h3> 
+          <p>Login to explore satellite insights that help identify ideal 
+renewable and mining zones — built for planners, researchers, and 
+innovators.</p> 
+        </div> 
+      </aside> 
+ 
+      <main class="form-side" role="main"> 
+        <h1>Create an account</h1> 
+        <div class="hint small">Already have an account? <a 
+href="login.html" style="color:var(--accent); text-decoration:none">Log 
+in</a></div> 
+ 
+        <form id="signupForm" novalidate=""> 
+          <div class="row"> 
+            <div style="flex:1" class="input-wrap"> 
+              <label for="first">First name</label> 
+              <input id="first" name="first" type="text" placeholder="" 
+required=""> 
+            </div> 
+            <div style="flex:1" class="input-wrap"> 
+              <label for="last">Last name</label> 
+              <input id="last" name="last" type="text" placeholder=""> 
+            </div> 
+          </div> 
+ 
+          <div class="input-wrap"> 
+            <label for="email">Email</label> 
+            <input id="email" name="email" type="email" 
+placeholder="@gmail.com" required=""> 
+          </div> 
+ 
+          <div class="input-wrap" style="position:relative"> 
+            <label for="password">Password</label> 
+            <input id="password" name="password" type="password" 
+placeholder="Enter your password" required=""> 
+          </div> 
+ 
+          <div class="checkbox"> 
+            <input id="agree" type="checkbox" checked=""> 
+            <label for="agree" style="margin:0; cursor:pointer">I agree to 
+the <a href="#" style="color:var(--accent)">Terms &amp; 
+Conditions</a></label> 
+          </div> 
+ 
+          <button class="btn-primary" type="submit">Create 
+account</button> 
+ 
+        
+ 
+          <div class="form-footer small"> 
+            By creating an account you agree to our <a href="#" 
+style="color:var(--accent)">Privacy Policy</a>. 
+          </div> 
+        </form> 
+      </main> 
+    </div> 
+  </div> 
+ 
+<script> 
+  document.getElementById('signupForm').addEventListener('submit', 
+function(e){ 
+    e.preventDefault(); 
+    const email = document.getElementById('email').value.trim(); 
+    const pwd = document.getElementById('password').value; 
+    const agreed = document.getElementById('agree').checked; 
+ 
+    if(!email || !pwd){ 
+      alert('Please fill all required fields.'); 
+      return; 
+    } 
+    if(!agreed){ 
+      alert('Please agree to the Terms & Conditions.'); 
+      return; 
+    } 
+ 
+    const user = { email: email, name: 
+document.getElementById('first').value || '' }; 
+    localStorage.setItem('realm_user', JSON.stringify(user)); 
+    localStorage.setItem('loggedIn','true'); 
+window.location.href = 'index.html'; 
+}); 
+function social(provider){ 
+alert('Social sign up with ' + provider + ' (demo).'); 
+} 
+</script> 
+</body> 
+</html>

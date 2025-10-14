@@ -1,0 +1,405 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+    
+    <script type="text/javascript" 
+src="/___vscode_livepreview_injected_script"></script> 
+    <meta charset="UTF-8"> 
+    <title>Land Suitability Predictor</title> 
+    <link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;
+ display=swap" rel="stylesheet"> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 30px; 
+            margin:0; 
+            background:linear-gradient(180deg,rgb(1, 10, 26) 0%, #071826 
+60%); 
+            color:#ffffff; 
+            -webkit-font-smoothing:antialiased 
+        } 
+ 
+        .navbar { 
+          display: flex; 
+          justify-content: space-between; 
+          align-items: center; 
+          padding: 12px 30px; 
+          background: rgb(44, 44, 58); 
+          box-shadow: 0 2px 18px rgb(255, 255, 255); 
+          border-radius: 12px; 
+          margin: 10px auto; 
+          max-width: 1100px; 
+        } 
+        .logo { 
+          font-size: 30px; 
+          font-weight: bold; 
+          color: #ffffff; 
+        } 
+ 
+    .logo-bottom { 
+      zoom: 400%; 
+      margin-bottom: 2px; 
+    } 
+    
+    .nav-links { 
+      display: flex; 
+      gap: 40px; 
+      list-style: none; 
+    } 
+ 
+    .nav-links a { 
+      text-decoration: none; 
+      font-size: 20px; 
+      font-weight: bold; 
+      color: #ffffff; 
+      transition: 0.3s; 
+    } 
+ 
+    .nav-links a:hover { 
+      color: #ffffff; 
+      background-color: #7272d6; 
+      border-radius: 10%; 
+      margin: auto; 
+      padding: 20px 8px; 
+    } 
+ 
+     .btn-primary { 
+      background: #ffffff; 
+      color: rgb(0, 0, 0); 
+      padding: 10px 22px; 
+      border: none; 
+      border-radius: 25px; 
+      cursor: pointer; 
+      font-size: 16px; 
+      font-weight: bold; 
+      transition: 0.3s; 
+    } 
+ 
+    .btn-primary:hover { 
+      background: #000000;} 
+    nav a { 
+            color:var(--muted); 
+            text-decoration:none; 
+            margin-left:18px 
+        } 
+ 
+    .hero-buttons { 
+      display: flex; 
+      justify-content: center; 
+      gap: 20px; 
+    } 
+ 
+    .btn-outline { 
+      border: 2px solid #6062aa; 
+      background: transparent; 
+      color: #5b5b5b; 
+      padding: 10px 22px; 
+      border-radius: 25px; 
+      font-size: 16px; 
+      font-weight: bold; 
+      cursor: pointer; 
+      transition: 0.3s; 
+    } 
+ 
+    .btn-outline:hover { 
+      background: #000000; 
+      color: white; 
+    } 
+ 
+    .hero { 
+      text-align: center; 
+      padding: 20px 130px; 
+    } 
+ 
+    .hero h1 { 
+      font-size: 65px; 
+      font-weight: bold; 
+      margin-bottom: 40px; 
+      color: #ffffff; 
+    } 
+ 
+    .hero p { 
+      font-size: 27px; 
+      color: #dad9d9; 
+      margin-bottom: 70px; 
+    } 
+ 
+    .hero-buttons { 
+      margin-bottom: 10px; 
+    } 
+    .btn { 
+      text-decoration: none; 
+      font-size: 20px; 
+      font-weight: bold; 
+      color: #ffffff; 
+      border-radius: 20px; 
+      color: #000000; 
+    } 
+ 
+ 
+ 
+ 
+ 
+ 
+.wrapper{ 
+width:100%; 
+max-width:9000px; 
+display:grid; 
+grid-template-columns:repeat(3,1fr); 
+gap:32px; 
+align-items:stretch; 
+} 
+ 
+.card{ 
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), 
+rgba(255,255,255,0.01)); 
+border:1px solid var(--card-border); 
+border-radius:18px; 
+border-color: #7272d6; 
+padding:26px 32px; 
+box-shadow: 0 8px 30px rgba(4,12,20,0.6), inset 0 1px 0 
+rgba(255,255,255,0.02); 
+backdrop-filter: blur(6px); 
+transition: transform 1.25s ease, box-shadow 1.25s ease; 
+min-height:10px; 
+display:flex; 
+flex-direction:column; 
+gap:32px; 
+} 
+ 
+.cards-container { 
+  padding: 50px; 
+} 
+.cards-container h1 { 
+  font-size: 80px; 
+  padding-bottom: 0px; 
+} 
+ 
+ 
+.card:hover{ 
+transform: translateY(-6px); 
+box-shadow: 0 15px 30px rgb(255, 255, 255); 
+} 
+ 
+ 
+.title{ 
+font-size:20px; 
+font-weight:700; 
+line-height:1.05; 
+letter-spacing:-0.01em; 
+} 
+ 
+ 
+.desc{ 
+font-size:16px; 
+color: #ccc; 
+line-height:1.45; 
+max-width:350px; 
+} 
+ 
+ 
+.card::before{ 
+content:""; 
+position:absolute; 
+} 
+ 
+.cards-container{position:relative} 
+ 
+.footer { 
+      background: #d1d0d0; 
+      color: #000000; 
+      padding: 0px 10px; 
+    } 
+    .footer-top { 
+      display: grid; 
+      grid-template-columns: 5fr 4fr 4fr 4fr; 
+      gap: 3px; 
+      max-width:1700px; 
+      margin:auto; 
+    } 
+    .footer h3 {margin-bottom:5px; font-size:2.1rem;} 
+    .footer p {margin:10px 0; font-size:1.2rem;} 
+    .footer a { 
+      display:block; 
+      margin: 25px 0; 
+      text-decoration:none; 
+      color:#000000; 
+    } 
+    .footer .cta-btn { 
+      background: #000000; 
+      color:#ffffff; 
+      padding: 12px 25px; 
+      border-radius: 25px; 
+      font-weight: bold; 
+      border:none; 
+      cursor:pointer; 
+      margin-top:35px; 
+    } 
+    .footer-bottom { 
+      text-align:center; 
+      margin-top:10px; 
+      font-size:0.9rem; 
+      opacity:0.8; 
+    } 
+ 
+    
+    input { 
+            padding: 8px; 
+            margin: 5px; 
+            width: 120px; 
+        } 
+    button { 
+            padding: 10px 20px; 
+            margin: 10px; 
+            cursor: pointer; 
+        } 
+    img { 
+            max-width: 400px; 
+            margin: 10px; 
+            border: 1px solid #ccc; 
+        } 
+    .results { 
+            margin-top: 20px; 
+        } 
+    #loading { 
+            display: none; 
+            margin-top: 20px; 
+            font-weight: bold; 
+            color: #007BFF; 
+        } 
+    </style> 
+</head> 
+    <body> 
+    <header> 
+<nav class="navbar"> 
+    <div class="logo">REALM</div> 
+    <ul class="nav-links"> 
+      <li><a href="#">Home</a></li> 
+      <li><a href="#">Features</a></li> 
+      <li><a href="#">Pricing</a></li> 
+      <li><a href="#">Our Story</a></li> 
+      <li><a href="#">Contact Us</a></li> 
+    </ul> 
+    <button class="btn-primary" 
+onclick="location.href='/demo'">Demo</button> 
+</nav> 
+</header> 
+ 
+    <section class="hero"> 
+    <h1>AI for smarter land use</h1> 
+    <p>REALM analyzes satellite imagery with deep learning to map and 
+classify land use — enabling quick, open-source insights for energy site 
+planning. It uses pretrained deep learning models for precise land-type 
+detection — from barren fields to active mining and renewable energy 
+zones.</p> 
+    <div class="hero-buttons"> 
+      <button class="btn" onclick="location.href='/demo'">Get 
+started</button> 
+      <button class="btn ghost" 
+onclick="location.href='https://github.com/Ashmit-rai17/REALM'">Star on 
+GitHub</button> 
+    </div> 
+  </section> 
+ 
+  <div class="cards-container"> 
+    <h1>Why to use this AI?</h1> 
+    <div class="wrapper"> 
+      <div class="card" aria-labelledby="h1"> 
+        <div class="title" id="h1">High-accuracy models</div> 
+        <div class="desc">Pretrained CNNs for land-type detection and 
+grad-CAM visual explanations.</div> 
+      </div> 
+      
+      <div class="card" aria-labelledby="h2"> 
+        <div class="title" id="h2">Satellite-ready</div> 
+        <div class="desc">Works with common satellite datasets and 
+geoTIFFs — pipeline-ready for batch processing.</div> 
+      </div> 
+ 
+ 
+      <div class="card" aria-labelledby="h3"> 
+        <div class="title" id="h3">Interactive outputs</div> 
+        <div class="desc">Produces heatmaps, downloadable masks, and 
+simple visual reports for decision making.</div> 
+      </div> 
+ 
+      <div class="card" aria-labelledby="h3"> 
+        <div class="title" id="h3">Energy Mapping</div> 
+        <div class="desc">Instantly identify zones suitable for solar, 
+wind, or mining projects using predictive analytics.</div> 
+      </div> 
+ 
+      <div class="card" aria-labelledby="h3"> 
+        <div class="title" id="h3">Open-Source Framework</div> 
+        <div class="desc">Built with transparency and reproducibility in 
+mind — customize or extend for your use case.</div> 
+      </div> 
+ 
+      <div class="card" aria-labelledby="h3"> 
+        <div class="title" id="h3">Sustainable  Planning</div> 
+        <div class="desc">Empower planners and researchers to choose 
+eco-friendly development zones.</div> 
+      </div> 
+    </div> 
+  </div> 
+ 
+  <div class="card-container"> 
+    <h1>Meet The Devs...</h1> 
+    <div class="wrapper"> 
+      <div class="card" aria-labelledby="h1"> 
+        <div class="title" id="h1">Asmit </div> 
+        <div class="desc">Created and trained the ML model</div> 
+      </div> 
+      
+      <div class="card" aria-labelledby="h2"> 
+        <div class="title" id="h2">Aditya Raj</div> 
+        <div class="desc">Developed and created the Frontend and Backend 
+of the website.</div> 
+      </div> 
+ 
+ 
+      <div class="card" aria-labelledby="h3"> 
+        <div class="title" id="h3">Divya Bhatia</div> 
+        <div class="desc">Prepared the dataset and added pre-processing 
+pipelines.</div> 
+      </div> 
+    </div> 
+  </div> 
+    <footer class="footer"> 
+    <div class="footer-top"> 
+      <div> 
+        <h3>Join the REALM AI</h3> 
+        <p>Generate heatmaps, classification masks, and simple visual 
+summaries — helping decision-makers identify ideal locations for solar, 
+wind, or mining projects at a glance.</p> 
+        <button class="cta-btn">Book a Demo</button> 
+      </div> 
+      <div> 
+        <h3>Need Help?</h3> 
+        <a href="#">Contact Us</a> 
+        <a href="#">Admin Login</a> 
+        <a href="#">Member Login</a> 
+        <a href="#">Privacy Policy</a> 
+      </div> 
+      <div> 
+        <h3>Learn More</h3> 
+        <a href="#">Features</a> 
+        <a href="#">Pricing</a> 
+        <a href="#">Our Story</a> 
+      </div> 
+      <div> 
+<h3>Get in Touch</h3> 
+<p>support@realmai.com</p> 
+</div> 
+</div> 
+<div class="footer-bottom"> 
+© 2025 REALM AI Operations Pty Ltd. All rights reserved.
+</div> 
+</footer> 
+</body> 
+</html>
